@@ -1,25 +1,37 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
+const port = 5000;
 
-app.use(express.json());
-
-
-// let users=[];
-
-
-mongoose.connect("mongodb+srv://Userdb:admin@cluster1.xr0p7xj.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster1" )
-  .then(() => console.log("Connected!"));
- 
-
-
-app.get('/', (req, res) => {
-  res.send('This is NODe JS Application');
+app.get("/api", (req, res) => {
+  res.json({
+    users: [
+      "ONE",
+      "Two",
+      "Three",
+      "Four",
+      "Five",
+      "Six",
+      "Seven",
+      "Eight",
+      "Nine",
+      "Ten",
+      "Eleven",
+      "Twelve",
+      "Thirteen",
+      "Fourteen",
+      "Fifteen",
+      "Sixteen",
+      "Seventeen",
+      "Eighteen",
+      "Nineteen",
+      "Twenty",
+    ],
+  });
 });
 
-
-app.listen(5000, () => {
-  console.log('Example app listening on port 5000!');
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
 
 // mongodb+srv://Userdb:admin@cluster1.xr0p7xj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1
@@ -31,7 +43,7 @@ app.listen(5000, () => {
 // app.post('/user', (req, res) => {
 //      users.push({...req.body, id: Date.now().toString(36)});
 //     res.status(201).send( { status:"201", user:req.body ,  message: "User Created Successfully"});
-   
+
 // });
 // app.delete('/user/:id', (req, res) => {
 //   const { id } = req.params;
