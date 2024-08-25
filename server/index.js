@@ -2,43 +2,49 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const port = 5000;
+const users = [
+  {
+    id: 1,
+    name: "John Doe",
+    img: "https://res.cloudinary.com/dybgmffbf/image/upload/v1724086748/samples/woman-on-a-football-field.jpg",
+    avatar:
+      "https://res.cloudinary.com/dybgmffbf/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1724086748/samples/woman-on-a-football-field.jpg",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    img: "https://res.cloudinary.com/dybgmffbf/image/upload/v1724086748/samples/woman-on-a-football-field.jpg",
+    avatar:
+      "https://res.cloudinary.com/dybgmffbf/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1724086748/samples/woman-on-a-football-field.jpg",
+  },
+  {
+    id: 3,
+    name: "Alice Johnson",
+    img: "https://res.cloudinary.com/dybgmffbf/image/upload/v1724086748/samples/woman-on-a-football-field.jpg",
+    avatar:
+      "https://res.cloudinary.com/dybgmffbf/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1724086748/samples/woman-on-a-football-field.jpg",
+  },
+  {
+    id: 4,
+    name: "Bob Brown",
+    img: "https://res.cloudinary.com/dybgmffbf/image/upload/v1724086748/samples/woman-on-a-football-field.jpg",
+    avatar:
+      "https://res.cloudinary.com/dybgmffbf/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1724086748/samples/woman-on-a-football-field.jpg",
+  },
+];
+
+app.use(express.json());
 
 app.get("/api", (req, res) => {
-  res.json({
-    users: [
-      "ONE",
-      "Two",
-      "Three",
-      "Four",
-      "Five",
-      "Six",
-      "Seven",
-      "Eight",
-      "Nine",
-      "Ten",
-      "Eleven"
-      
-    ],
-  });
+  res.json({ users });
+});
+
+app.post("/api", (req, res) => {
+  const user = req.body;
+  users.push(user);
+  res.json({ user });
 });
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
-
-// mongodb+srv://Userdb:admin@cluster1.xr0p7xj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1
-
-// app.get('/user', (req, res) => {
-//     res.send(users);
-// });
-
-// app.post('/user', (req, res) => {
-//      users.push({...req.body, id: Date.now().toString(36)});
-//     res.status(201).send( { status:"201", user:req.body ,  message: "User Created Successfully"});
-
-// });
-// app.delete('/user/:id', (req, res) => {
-//   const { id } = req.params;
-//     users = users.filter((user) => user.id !== id);
-//   res.send({  message: "User Deleted Successfully" });
-// });
