@@ -16,16 +16,8 @@ app.get("/api", (req, res) => {
       "Eight",
       "Nine",
       "Ten",
-      "Eleven",
-      "Twelve",
-      "Thirteen",
-      "Fourteen",
-      "Fifteen",
-      "Sixteen",
-      "Seventeen",
-      "Eighteen",
-      "Nineteen",
-      "Twenty",
+      "Eleven"
+      
     ],
   });
 });

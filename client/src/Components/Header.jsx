@@ -13,13 +13,14 @@ const Header = () => {
         APi DAta
       </div>
       <div>
-        {typeof Backenddata.users === "undefined" ? (
+        {
+          typeof Backenddata.users === "undefined" ? (
           <h1>Loading.....</h1>
         ) : (
           Backenddata.users.map((user, index) => (
-            <div className="flex   justify-center">
+            <div className="flex justify-center">
               <h4
-                className=" justify-center align-middle p-10 w-28 flex bg-lime-300 rounded-full"
+                className="justify-center align-middle p-10 w-28 flex bg-lime-300 rounded-full"
                 key={index}>
                 {user}
               </h4>
